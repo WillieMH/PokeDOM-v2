@@ -1,3 +1,5 @@
+// couldn't work out import, gave up after 20mins and moved array to one file
+// and collapsed the array. Will play with import again at end.
 const pokemonArray = [
   {
     id: 1,
@@ -1057,8 +1059,7 @@ const pokemonArray = [
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png",
   },
 ];
-// couldn't work out import, gave up after 20mins and moved array to one file
-// and collapsed the array. Will play with import again at end.
+
 
 const pageHTML = document.querySelector(".card-container");
 
@@ -1082,29 +1083,29 @@ pokemonArray.forEach((cardPoke) => {
   `
 });
 
-// *** ATTEMPTED FILTER HERE- DIDNT WORK SO PUSHED IT UP ***
 
-// const nameSearch = document.querySelector(".nameSearch");
 
-// const searchArryNames = (event) => {  
-//   pokemonArray.forEach((cardPoke) => {
-//     if (cardPoke.name = (event.target.value)) {
-//     const name1 = cardPoke.name;
-//     const name2 = name1.charAt(0).toUpperCase() + name1.slice(1);
-//     if ((cardPoke.types).length > 1) {
-//       cardPoke.types = (cardPoke.types).join(" & ")
-//     }
-//     pageHTML.innerHTML += 
-//     ` <div class="card">
-//         <img class="card__image" src="${cardPoke.sprite}" alt="Pokemon ${cardPoke.name}">
-//         <div class="card__content">
-//           <div class="card__heading">${name2}</div>
-//           <div class="card__text">${name2} (#${cardPoke.id}) is a ${cardPoke.types} type pokemon.
-//         </div>
-//       </div>
-//     `
-//   }
-//   });
-// }
+const nameSearch = document.querySelector(".nameSearch");
 
-// nameSearch.addEventListener("focusout", searchArryNames);
+const searchArryNames = (event) => {  
+  pokemonArray.forEach((cardPoke) => {
+    if (cardPoke.name = (event.target.value)) {
+    const name1 = cardPoke.name;
+    const name2 = name1.charAt(0).toUpperCase() + name1.slice(1);
+    if ((cardPoke.types).length > 1) {
+      cardPoke.types = (cardPoke.types).join(" & ")
+    }
+    pageHTML.innerHTML += 
+    ` <div class="card">
+        <img class="card__image" src="${cardPoke.sprite}" alt="Pokemon ${cardPoke.name}">
+        <div class="card__content">
+          <div class="card__heading">${name2}</div>
+          <div class="card__text">${name2} (#${cardPoke.id}) is a ${cardPoke.types} type pokemon.
+        </div>
+      </div>
+    `
+  }
+  });
+}
+
+nameSearch.addEventListener("focusout", searchArryNames);
